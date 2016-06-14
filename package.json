@@ -1,0 +1,36 @@
+{
+  "name": "PushPlugin_V2",
+  "version": "2.0.1",
+  "description": "\r\n\t\tThis plugin allows your application to receive push notifications on Android, iOS and WP devices.\r\n    Android uses Google Cloud Messaging.\r\n    iOS uses Apple APNS Notifications.\r\n    WP uses Microsoft MPNS Notifications.\r\n\t",
+  "cordova": {
+    "id": "com.phonegap.plugins.Puship_V2",
+    "platforms": []
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Puship/PushPlugin_V2.git"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.6.3"
+    },
+    {
+      "name": "cordova-android",
+      "version": ">=4.0.0"
+    },
+    {
+      "name": "cordova-ios",
+      "version": ">=4.1.0"
+    }
+  ],
+  "author": "SoftRay S.r.l.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Puship/PushPlugin_V2/issues"
+  },
+  "homepage": "https://github.com/Puship/PushPlugin_V2#readme"
+}
