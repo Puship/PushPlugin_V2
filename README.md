@@ -4,37 +4,13 @@
 
 ## DESCRIPTION
 
-This plugin is for use with [Puship.com](http://www.puship.com), it's quickly enable support for Push Notifications on phonegap and cordova applications.
+This plugin is for use with [Puship.com](https://www.puship.com), it's quickly enable support for Push Notifications on phonegap and cordova applications.
+
+This plugin extends the plugin [phonegap-plugin-push](https://github.com/phonegap/phonegap-plugin-push),
+So, you can use all his methods for manage the push notifications
+
 
 **Important** - Push notifications are intended for real devices. The registration process will fail on the iOS simulator. Notifications can be made to work on the Android Emulator, however doing so requires installation of some helper libraries.
-
-
-
-##<a name="license"></a> LICENSE
-
-	The MIT License
-
-	Copyright (c) 2012 Adobe Systems, inc.
-	portions Copyright (c) 2012 Olivier Louvignes
-
-	Permission is hereby granted, free of charge, to any person obtaining a copy
-	of this software and associated documentation files (the "Software"), to deal
-	in the Software without restriction, including without limitation the rights
-	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-	copies of the Software, and to permit persons to whom the Software is
-	furnished to do so, subject to the following conditions:
-
-	The above copyright notice and this permission notice shall be included in
-	all copies or substantial portions of the Software.
-
-	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-	THE SOFTWARE.
-
 
 
 
@@ -47,10 +23,10 @@ This plugin is for use with [Puship.com](http://www.puship.com), it's quickly en
 
 The plugin can be installed via the Cordova command line interface:
 
-1) Navigate to the root folder for your phonegap project. 2) Run the command.
+1) Navigate to the root folder for your cordova project. 2) Run the command.
 
 ```sh
-cordova plugin add PushPlugin_V2
+cordova plugin add PushPlugin_V2 --variable SENDER_ID="XXXXXXX"
 ```
 
 ### Phonegap
@@ -60,25 +36,39 @@ The plugin can be installed using the Phonegap command line interface:
 1) Navigate to the root folder for your phonegap project. 2) Run the command.
 
 ```sh
-phonegap local plugin add PushPlugin_V2
+phonegap local plugin add PushPlugin_V2 --variable SENDER_ID="XXXXXXX"
 ```
 
-### Plugman
+Where the `XXXXXXX` in `SENDER_ID="XXXXXXX"` maps to the project number in the [Google Developer Console](https://www.google.ca/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwikqt3nyPjMAhXJ5iYKHR0qDcsQFggbMAA&url=https%3A%2F%2Fconsole.developers.google.com%2F&usg=AFQjCNF0eH059mv86nMIlRmfsf42kde-wA&sig2=BQ2BJpchw1CpGt87sk5p6w&bvm=bv.122852650,d.eWE). To find the project number login to the Google Developer Console, select your project and click the menu item in the screen shot below to display your project number.
 
-The plugin is based on [plugman](https://github.com/apache/cordova-plugman) and can be installed using the Plugman command line interface:
+![zzns8](https://cloud.githubusercontent.com/assets/353180/15588897/2fc14db2-235e-11e6-9326-f97fe0ec15ab.png)
 
-```sh
-plugman install --platform [PLATFORM] --project [TARGET-PATH] --plugin [PLUGIN-PATH]
+If you are not creating an Android application you can put in anything for this value.
 
-where
-	[PLATFORM] = ios, android or wp8
-	[TARGET-PATH] = path to folder containing your phonegap project
-	[PLUGIN-PATH] = path to folder containing this plugin
+> Note: if you are using ionic you may need to specify the SENDER_ID variable in your package.json.
+
+```
+  "cordovaPlugins": [
+    {
+      "variables": {
+        "SENDER_ID": "XXXXXXX"
+      },
+      "locator": "PushPlugin_V2"
+    }
+  ]
+```
+
+> Note: You need to specify the SENDER_ID variable in your config.xml if you plan on installing/restoring plugins using the prepare method.  The prepare method will skip installing the plugin otherwise.
+
+```
+<plugin name="PushPlugin_V2">
+    <variable name="SENDER_ID" value="XXXXXXX" />
+</plugin>
 ```
 
 ##<a name="automatic_installation"></a>How to use:
 
-Go to puship.com and create your Free account. configure your application from dashboard an then add this code to your index.js:
+Go to [puship.com](https://www.puship.com/members) and create your Free account. Configure your application from dashboard an then add this code to your index.js:
 
 
 ```
@@ -94,13 +84,13 @@ receivedEvent: function(id) {
 		
 		
 		var Puship = puship.init();
-		Puship.PushipAppId="z23KUaPqVU7MbUq"; //YOU APPID
+		Puship.PushipAppId="z23KUaPqVU7MbUq"; //Your AppId generated on Puship Dashboard
 		Puship.EnableLog=true;
 		
 	
  		var push = PushNotification.init({
 			android: {
-				senderID: "921725624540" 
+				senderID: "XXXXXXX" 
 			},
 			ios: {
 				alert: "true",
@@ -111,8 +101,7 @@ receivedEvent: function(id) {
 		});
 		
 		push.on('registration', function(data) {
-			//navigator.notification.alert("registration id:" + data.registrationId);
-	
+
 			Puship.Common.Register(data.registrationId,
 			{
 				successCallback: function (pushipresult){
@@ -135,6 +124,8 @@ receivedEvent: function(id) {
 		});
 	}
 ```
+
+
 
 Then run your app and start send push notifications!
 
