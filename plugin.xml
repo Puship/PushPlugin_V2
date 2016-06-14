@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
         id="com.phonegap.plugins.Puship_V2"
-        version="2.0.1">
+        version="2.0.3">
 
 	<name>Puship</name>
 	<author>SoftRay S.r.l.</author>

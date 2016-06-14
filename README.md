@@ -4,7 +4,7 @@
 
 ## DESCRIPTION
 
-This plugin is for use with [Puship.com](http://www.puship.com), it's quickly enable support for Push Notifications on phonegap applications.
+This plugin is for use with [Puship.com](http://www.puship.com), it's quickly enable support for Push Notifications on phonegap and cordova applications.
 
 **Important** - Push notifications are intended for real devices. The registration process will fail on the iOS simulator. Notifications can be made to work on the Android Emulator, however doing so requires installation of some helper libraries.
 
@@ -50,7 +50,7 @@ The plugin can be installed via the Cordova command line interface:
 1) Navigate to the root folder for your phonegap project. 2) Run the command.
 
 ```sh
-cordova plugin add com.phonegap.plugins.Puship_V2
+cordova plugin add PushPlugin_V2
 ```
 
 ### Phonegap
@@ -60,7 +60,7 @@ The plugin can be installed using the Phonegap command line interface:
 1) Navigate to the root folder for your phonegap project. 2) Run the command.
 
 ```sh
-phonegap local plugin add com.phonegap.plugins.Puship_V2
+phonegap local plugin add PushPlugin_V2
 ```
 
 ### Plugman
