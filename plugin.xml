@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.phonegap.plugins.Puship_V2"
+        version="2.0.0">
+
+	<name>Puship</name>
+	<author>SoftRay S.r.l.</author>
+	<description>
+		This plugin allows your application to receive push notifications on Android, iOS and WP devices.
+    Android uses Google Cloud Messaging.
+    iOS uses Apple APNS Notifications.
+    WP uses Microsoft MPNS Notifications.
+	</description>
+	<engines>
+        <engine name="cordova" version=">=3.6.3" />
+        <engine name="cordova-android" version=">=4.0.0" />
+        <engine name="cordova-ios" version=">=4.1.0" />
+    </engines>
+
+	<asset src="www/PushipNotification.js" target="js/PushipNotification.js"/>
+	<js-module src="www/PushipNotification.js" name="puship">
+		<clobbers target="puship" />
+	</js-module>
+	
+	<preference name="SENDER_ID" />
+	<dependency id="phonegap-plugin-push" />
+	<dependency id="cordova-plugin-console"  />
+	<dependency id="cordova-plugin-geolocation"  />
+	<dependency id="cordova-plugin-dialogs"  />
+</plugin>
