@@ -1,4 +1,4 @@
-# Push Notifications Plugin V2 for Android, iOS and WP8
+# Push Notifications Plugin V2 for Android, iOS and Windows
 
 ---
 
@@ -96,7 +96,7 @@ receivedEvent: function(id) {
 		var Puship = puship.init();
 		Puship.PushipAppId="z23KUaPqVU7MbUq"; //YOU APPID
 		Puship.EnableLog=true;
-		Puship.EnableHtmlLog=true;
+		
 	
  		var push = PushNotification.init({
 			android: {
