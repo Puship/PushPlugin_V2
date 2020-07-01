@@ -1,5 +1,6 @@
-# Push Notifications Plugin V2 for Android, iOS and Windows
+# [DEPRECATED] Push Notifications Plugin V2 for Android, iOS and Windows
 
+### _This plugin is deprecated, i.e. it is no longer maintained. Going forward additional features and bug fixes will be added to the new puship-plugin repository._
 ---
 
 ## DESCRIPTION
